@@ -3,19 +3,14 @@ import {LinearGradient} from "expo-linear-gradient";
 import { Component } from "react";
 import {Animated, Dimensions, Easing, Image, View, Text, TextInput, CheckBox, TouchableOpacity} from "react-native";
 import {styles} from "./styles/style";
-import Register from './Register';
-import { createStackNavigator, createAppContainer } from 'react-navigation';  
 
 const {height, width} = Dimensions.get("screen");
 
-export default class App extends Component {
+export default class Register extends Component {
 state = {
   screenAnimation: new Animated.Value(height),
   inputAnimation: new Animated.Value(0),
 };
-toRegister = () => {
-  alert('clicked');
-}
 
 AnimateContainer = () => {
   Animated.timing(this.state.screenAnimation, {
@@ -25,8 +20,6 @@ AnimateContainer = () => {
     //useNativeDriver: false,
   }).start();
 };
-
-
 
 AnimateInput = () => {
   Animated.timing(this.state.inputAnimation, {
@@ -55,7 +48,6 @@ AnimatedInput = {
     },
   ],
 };
-
   render() {
     return (
       <Animated.View  style = {[styles.container, this.Animatedcontainer]} >
@@ -132,9 +124,8 @@ AnimatedInput = {
                     }}  
                   >
                     <Text style={{marginLeft: 50, color: "#888"}}>Still Not Connected?</Text>
-                    <TouchableOpacity  style={{marginLeft: 10}} onPress={() => this.props.navigation.navigate('Register')} >
-                      <Text style={{color: "#5ab568"}} >Sign Up</Text>
-                      
+                    <TouchableOpacity  style={{marginLeft: 10}}>
+                      <Text style={{color: "#5ab568"}}>Sign Up</Text>
                     </TouchableOpacity>
                   </View>
                 </Animated.View>
